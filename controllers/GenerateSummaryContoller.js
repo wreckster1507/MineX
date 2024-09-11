@@ -1,4 +1,6 @@
+import fetch from "node-fetch";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+globalThis.fetch = fetch;
 const genAI = new GoogleGenerativeAI("AIzaSyBTBl4XWZcm8QLLEXOl8xZkdApTqO4JLyY");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
