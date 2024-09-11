@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  server-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_URL=redis://redis-server:6379
+    networks:
+      - server-network
+    depends_on:
+      - redis-server
+
+  redis-server:
+    image: redis:latest
+    networks:
+      - server-network
+
+networks:
+  server-network:
+    driver: bridge
