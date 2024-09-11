@@ -1,7 +1,9 @@
 import fetch from "node-fetch";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from "dotenv";
+dotenv.config();
 globalThis.fetch = fetch;
-const genAI = new GoogleGenerativeAI("AIzaSyBTBl4XWZcm8QLLEXOl8xZkdApTqO4JLyY");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Route to generate summary
