@@ -1,5 +1,5 @@
 # Use the official Node.js version 16 slim image
-FROM node:16-slim
+FROM node:18-slim
 
 # Set the working directory inside the container
 WORKDIR /src/mine-x/server-api
