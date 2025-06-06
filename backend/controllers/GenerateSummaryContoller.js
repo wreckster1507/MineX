@@ -21,7 +21,7 @@ const generateSummaryGemini = async (req, res) => {
       2
     )}`;
     const result = await model.generateContent(prompt);
-
+    console.log(result.response.text());
     const importantData = {
       totalTonnageMined: shiftLog.productionData.totalTonnageMined,
       activeMachines: shiftLog.productionData.activeMachines,
@@ -30,6 +30,8 @@ const generateSummaryGemini = async (req, res) => {
       nearMisses: shiftLog.safetyReports.nearMisses,
       hazardsIdentified: shiftLog.safetyReports.hazardsIdentified,
     };
+
+
 
     res.json({ summary: result.response.text(), importantData });
   } catch (error) {
